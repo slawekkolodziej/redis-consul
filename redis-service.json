@@ -1,0 +1,11 @@
+{
+  "ID": "SERVICE_ID",
+  "Name": "redis",
+  "Tags": [],
+  "Address": "SERVICE_ADDR",
+  "Port": 6379,
+  "Check": {
+    "Script": "printf 'PING\n' | nc SERVICE_ADDR 6379 | grep -q PONG && echo 'OK' || { echo 'No PONG' 1>&2 ; exit 1; }",
+    "Interval": "10s"
+  }
+}
