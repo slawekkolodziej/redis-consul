@@ -2,8 +2,8 @@
   "consul": "{{.CONSUL_ADDRESS}}",
   "services": [
     {
-      "id": "{{.SERVICE_ID}}",
       "name": "redis",
+      "address": "{{.REDIS_ADDRESS}}",
       "port": 6379,
       "interfaces": ["eth0"],
       "health": "redis-cli PING",
