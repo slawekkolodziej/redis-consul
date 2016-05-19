@@ -75,7 +75,7 @@ fi
 SERVICE_CONFIG=$(cat /etc/redis/redis-service.json)
 CONSUL_RESP=$(curl -X PUT -d "$SERVICE_CONFIG" "http://$CONSUL_ADDR/v1/agent/service/register")
 
-if [ "$CONSUL_RESP" == "true" ]; then
+if [ "$CONSUL_RESP" == "" ]; then
 	echo "Service registered"
 else
 	echo "Consul response: $CONSUL_RESP"
