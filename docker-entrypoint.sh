@@ -76,7 +76,7 @@ SERVICE_CONFIG=$(cat /etc/redis/redis-service.json)
 CONSUL_RESP=$(curl -X PUT -d "$SERVICE_CONFIG" "http://$CONSUL_ADDR/v1/catalog/register")
 
 echo "Consul resp: $CONSUL_RESP"
-# if [ "$CONSUL_RESP" -ne "true" ]; then
+# if [ "$CONSUL_RESP" == "true" ]; then
 	# die "Redis server could not be started. Consul response: $CONSUL_RESP"
 # fi
 
