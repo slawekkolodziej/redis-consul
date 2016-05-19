@@ -73,7 +73,7 @@ if [ "$1" = 'redis-server' ]; then
 fi
 
 SERVICE_CONFIG=$(cat /etc/redis/redis-service.json)
-CONSUL_RESP=$(curl -X PUT -d "$SERVICE_CONFIG" "http://$CONSUL_ADDR/v1/catalog/register")
+CONSUL_RESP=$(curl -X PUT -d "$SERVICE_CONFIG" "http://$CONSUL_ADDR/v1/agent/service/register")
 
 if [ "$CONSUL_RESP" == "true" ]; then
 	echo "Service registered"
