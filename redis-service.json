@@ -4,7 +4,7 @@
   "Address": "NODE_ADDR",
   "Service": {
     "ID": "SERVICE_ID",
-    "Name": "redis",
+    "Service": "redis",
     "Tags": [],
     "Address": "SERVICE_ADDR",
     "Port": 6379,
