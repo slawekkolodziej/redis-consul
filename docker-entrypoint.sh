@@ -35,6 +35,7 @@ fi
 sed -i "s/NODE_NAME/${NODE_NAME}/g" "/etc/redis/redis-service.json"
 sed -i "s/NODE_ADDR/${NODE_ADDR}/g" "/etc/redis/redis-service.json"
 sed -i "s/SERVICE_ADDR/${SERVICE_ADDR}/g" "/etc/redis/redis-service.json"
+sed -i "s/SERVICE_NAME/${SERVICE_NAME}/g" "/etc/redis/redis-service.json"
 sed -i "s/SERVICE_ID/${SERVICE_ID}/g" "/etc/redis/redis-service.json"
 
 # first arg is `-f` or `--some-option`
