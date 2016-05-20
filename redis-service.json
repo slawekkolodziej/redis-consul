@@ -1,6 +1,6 @@
 {
   "ID": "SERVICE_ID",
-  "Name": "redis",
+  "Name": "SERVICE_NAME",
   "Tags": [],
   "Address": "SERVICE_ADDR",
   "Port": 6379,

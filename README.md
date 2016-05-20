@@ -7,4 +7,5 @@ However, you can define these ENV variables and it should join any cluster you w
 - `NODE_ADDR`
 - `NODE_NAME`
 - `SERVICE_ADDR`
+- `SERVICE_NAME`
 - `SERVICE_ID` - by default it takes form of `SERVICE_NAME-HOSTNAME` (Where `HOSTNAME` is container's host name)

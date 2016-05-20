@@ -21,9 +21,14 @@ if [ -z ${SERVICE_ADDR+x} ]; then
 	export SERVICE_ADDR=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)
 fi
 
+# Generate service name if it's not defined
+if [ -z ${SERVICE_NAME+x} ]; then
+	export SERVICE_NAME="redis"
+fi
+
 # Generate service id if it's not defined
 if [ -z ${SERVICE_ID+x} ]; then
-	export SERVICE_ID="redis-$HOSTNAME"
+	export SERVICE_ID="$SERVICE_NAME-$HOSTNAME"
 fi
 
 # Put values in the service config file
