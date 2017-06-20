@@ -6,6 +6,8 @@
   "Port": 6379,
   "Check": {
     "Script": "printf 'PING\n' | nc SERVICE_ADDR 6379 | grep -q PONG && printf 'OK' || { printf 'NO PONG' 1>&2 ; exit 1; }",
-    "Interval": "10s"
+    "Interval": "10s",
+    "timeout": "1s",
+    "deregister_critical_service_after": "2m"
   }
 }
