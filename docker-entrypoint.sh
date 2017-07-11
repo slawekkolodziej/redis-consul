@@ -2,7 +2,9 @@
 set -e
 
 # Assume that the HTTP client is running on Docker bridge on default port
-if [ -z ${CONSUL_ADDR+x} ]; then
+if [ "${CONSUL_ADDR}" = 'host' ]; then
+	export CONSUL_ADDR=`ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1`:8500
+elif [ -z ${CONSUL_ADDR+x} ]; then
 	export CONSUL_ADDR=`ip ro | grep default | awk '{print $3}'`:8500
 fi
 
