@@ -10,7 +10,7 @@ fi
 
 # If hostname is not provided, use EC2 instance hostname
 if [ -z ${NODE_NAME+x} ]; then
-	export NODE_NAME=$(curl http://169.254.169.254/latest/meta-data/local-hostname | sed -E 's/(ip(-[0-9]{1,3}){4})\..+/\1/')
+	export NODE_NAME=$(curl http://169.254.169.254/latest/meta-data/local-hostname)
 fi
 
 # If addres is not provided, use EC2 instance IP
@@ -81,9 +81,9 @@ if [ "$1" = 'redis-server' ]; then
 fi
 
 SERVICE_CONFIG=$(cat /etc/redis/redis-service.json)
-CONSUL_RESP=$(curl -X PUT -d "$SERVICE_CONFIG" "http://$CONSUL_ADDR/v1/agent/service/register")
+CONSUL_RESP=$(curl -X PUT -d "$SERVICE_CONFIG" "http://$CONSUL_ADDR/v1/catalog/register")
 
-if [ "$CONSUL_RESP" == "" ]; then
+if [ "$CONSUL_RESP" == "true" ]; then
 	echo "Service registered"
 else
 	echo "Consul response: $CONSUL_RESP"

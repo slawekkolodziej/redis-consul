@@ -1,12 +1,25 @@
 {
-  "ID": "SERVICE_ID",
-  "Name": "SERVICE_NAME",
-  "Tags": [],
+  "Node": "NODE_ADDRESS",
   "Address": "SERVICE_ADDR",
-  "Port": 6379,
+  "Service": {
+    "ID": "SERVICE_ID",
+    "Service": "SERVICE_NAME",
+    "Tags": [],
+    "Address": "SERVICE_ADDR",
+    "Port": 6379
+  },
   "Check": {
-    "Script": "printf 'PING\n' | nc SERVICE_ADDR 6379 | grep -q PONG && printf 'OK' || { printf 'NO PONG' 1>&2 ; exit 1; }",
-    "DeregisterCriticalServiceAfter": "2m",
-    "TTL": "30s"
+    "Node": "NODE_ADDRESS",
+    "CheckID": "service:redis",
+    "Name": "Redis health check",
+    "ServiceID": "SERVICE_ID",
+    "Definition": {
+      "Name": "redis-health",
+      "Shell": "/bin/sh",
+      "Args": ["/bin/redis-healthcheck.sh"],
+      "DeregisterCriticalServiceAfter": "2m",
+      "Timeout": "10s",
+      "Interval": "20s"
+    }
   }
 }

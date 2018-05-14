@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.7
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN addgroup -S redis && adduser -S -G redis redis
@@ -30,6 +30,7 @@ RUN set -x \
 
 RUN mkdir /etc/redis && chown redis:redis /etc/redis
 COPY redis-service.json /etc/redis/redis-service.json
+COPY redis-healthcheck.sh /bin/redis-healthcheck.sh
 
 RUN mkdir /data && chown redis:redis /data
 VOLUME /data
