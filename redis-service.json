@@ -1,5 +1,5 @@
 {
-  "Node": "NODE_ADDRESS",
+  "Node": "NODE_ADDR",
   "Address": "SERVICE_ADDR",
   "Service": {
     "ID": "SERVICE_ID",
@@ -9,7 +9,7 @@
     "Port": 6379
   },
   "Check": {
-    "Node": "NODE_ADDRESS",
+    "Node": "NODE_ADDR",
     "CheckID": "service:redis",
     "Name": "Redis health check",
     "ServiceID": "SERVICE_ID",
