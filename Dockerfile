@@ -30,7 +30,6 @@ RUN set -x \
 
 RUN mkdir /etc/redis && chown redis:redis /etc/redis
 COPY redis-service.json /etc/redis/redis-service.json
-COPY redis-healthcheck.sh /bin/redis-healthcheck.sh
 
 RUN mkdir /data && chown redis:redis /data
 VOLUME /data
